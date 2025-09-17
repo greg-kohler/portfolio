@@ -4,29 +4,49 @@ title: Other Experience
 ---
 
 <head>
-    <style>
+  <style>
     body {
       padding: 2vh 0 10vh;
       background-color: #f5f6fa;
       font-family: sans-serif;
     }
 
+    .intro {
+      width: 80%;
+      margin: 0 auto 30px;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    /* Masonry-style grid */
     .projects-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 20px;
+      column-count: 3; /* Adjust number of columns for wide screens */
+      column-gap: 20px;
       padding: 0 10%;
     }
 
+    @media (max-width: 1000px) {
+      .projects-container {
+        column-count: 2;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .projects-container {
+        column-count: 1;
+      }
+    }
+
     .project {
+      display: inline-block;
+      width: 100%;
+      margin: 0 0 20px;
       border: 1px solid #ddd;
       border-radius: 12px;
       background-color: white;
       box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
       overflow: hidden;
       transition: transform 0.3s ease;
-      display: flex;
-      flex-direction: column;
       text-align: center;
     }
 
@@ -42,7 +62,7 @@ title: Other Experience
       align-items: flex-end;
       justify-content: center;
       color: white;
-      text-shadow: 0 1px 4px rgba(0,0,0,0.6);
+      text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
       padding: 10px;
       font-weight: bold;
       font-size: 1.2rem;
@@ -76,7 +96,7 @@ title: Other Experience
     }
 
     .project.expanded .project-details {
-      max-height: 1000px; /* enough space to show iframe */
+      max-height: 1000px; /* enough to reveal content */
       padding: 15px;
     }
 
@@ -84,6 +104,7 @@ title: Other Experience
       margin-bottom: 15px;
       font-size: 0.95rem;
       line-height: 1.4;
+      text-align: left;
     }
 
     iframe {
@@ -94,16 +115,26 @@ title: Other Experience
     }
   </style>
 </head>
-<body>
-    <header>
-        <!-- Your header content goes here -->
-    </header>
 
-    <main>
-	<div class="intro">
-	    <p style="font-weight:bold;">Below are summaries of my experiences related to consulting, urban planning, and more. These experiences are not directly related to GIS and spatial analysis, but provide insight into my other skills. The majority of these projects are in the form of reports. Explore each of my experiences by clicking "Learn More". Click on the images or the "Pop-Out" button of the reports to view them in greater detail.</p>
-	</div>
-	<div class="projects-container">
+<body>
+  <header>
+    <!-- Your header content goes here -->
+  </header>
+
+  <main>
+    <div class="intro">
+      <p>
+        Below are summaries of my experiences related to consulting, urban planning, and more. 
+        These experiences are not directly related to GIS and spatial analysis, but provide insight 
+        into my other skills. The majority of these projects are in the form of reports. Explore each 
+        of my experiences by clicking "Learn More". Click on the images or the "Pop-Out" button of the 
+        reports to view them in greater detail.
+      </p>
+    </div>
+
+    <div class="projects-container">
+
+      <!-- Project 1 -->
       <section class="project">
         <div class="project-header" style="background-image: url('https://github.com/greg-kohler/portfolio/blob/main/CEZ.jpg?raw=true');">
           Creative Enterprise Zone Consulting
@@ -113,7 +144,7 @@ title: Other Experience
           <div class="project-details">
             <p class="projectinfo">
               This report focused on the Creative Enterprise Zone neighborhood in St Paul. 
-              The report described the current conditions of the area (demographics, fieldwork, outreach) 
+              The report described the current conditions (demographics, fieldwork, outreach) 
               and performed a SWOT analysis with recommendations for the future. 
               This project gave me experience with evaluating neighborhood conditions and grant proposals.
             </p>
@@ -121,7 +152,9 @@ title: Other Experience
           </div>
         </div>
       </section>
-	  <section class="project">
+
+      <!-- Project 2 -->
+      <section class="project">
         <div class="project-header" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/5/51/Denver_light_rail_train.jpg');">
           Light Rail Impact on Community Stakeholders
         </div>
@@ -129,13 +162,20 @@ title: Other Experience
           <button class="toggle-button" onclick="toggleDetails(this)">Learn More</button>
           <div class="project-details">
             <p class="projectinfo">
-              This paper researched how light rail construction and operation impacts residential stakeholders. More specifically, what the harms and benefits renters, landlords and developers experience due to light rail development and operation. Research suggests that it is expected to overall increase land value and increase property values for properties near the stations. In this paper, I uncovered how these changes in property values and land values do not impact all residential stakeholders in the same way. My goal with this paper was to help inform people about how light rail systems may impact their community and if it would be a good fit.
+              This paper researched how light rail construction and operation impacts residential stakeholders. 
+              More specifically, what the harms and benefits renters, landlords and developers experience due 
+              to light rail development and operation. Research suggests that it overall increases land and 
+              property values near stations. In this paper, I uncovered how these changes do not impact all 
+              residential stakeholders in the same way. My goal was to inform people about how light rail systems 
+              may impact their community and if it would be a good fit.
             </p>
-            <iframe class="centered-image" src="https://drive.google.com/file/d/1oOI6T-mkDaGTzafL0ikZ5RwzrVKN387b/preview" h frameborder="0" allowfullscreen></iframe>
+            <iframe src="https://drive.google.com/file/d/1oOI6T-mkDaGTzafL0ikZ5RwzrVKN387b/preview" allowfullscreen></iframe>
           </div>
         </div>
       </section>
-	  <section class="project">
+
+      <!-- Project 3 -->
+      <section class="project">
         <div class="project-header" style="background-image: url('https://live.staticflickr.com/65535/48806153781_4516c002a3_b.jpg');">
           Dinkytown Business Owner Survey and Outreach
         </div>
@@ -143,19 +183,23 @@ title: Other Experience
           <button class="toggle-button" onclick="toggleDetails(this)">Learn More</button>
           <div class="project-details">
             <p class="projectinfo">
-              During 2020, Dinkytown's businesses and customers were struggling. Many customers did not know the hours of businesses or if they were open at all. Through my work as a consulting intern, I helped create a survey for the business managers to fill out, this included information on current hours, services offered, and anything else they wanted people to know. After reaching out to all the business owners, through email and in-person reminders, we had a spreadsheet of information on Dinkytown. With this information, we were able to create a webpage that showed customers all the open businesses and their hours. This website was advertsited through a QR code that many businesses had in their entryways.
+              During 2020, Dinkytown's businesses and customers were struggling. Many customers 
+              did not know the hours of businesses or if they were open at all. Through my work 
+              as a consulting intern, I helped create a survey for the business managers to fill out, 
+              covering hours, services, and updates. After outreach, we created a webpage showing open 
+              businesses and hours, promoted via QR codes in storefronts. 
             </p>
-            <iframe class="centered-image" src="https://drive.google.com/file/d/1oOI6T-mkDaGTzafL0ikZ5RwzrVKN387b/preview" h frameborder="0" allowfullscreen></iframe>
+            <iframe src="https://drive.google.com/file/d/1oOI6T-mkDaGTzafL0ikZ5RwzrVKN387b/preview" allowfullscreen></iframe>
           </div>
         </div>
       </section>
-		
-    </div>
-    </main>
 
-    <footer>
-        <!-- Your footer content goes here -->
-    </footer>
+    </div>
+  </main>
+
+  <footer>
+    <!-- Your footer content goes here -->
+  </footer>
 
   <script>
     function toggleDetails(button) {
