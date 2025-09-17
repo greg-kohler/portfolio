@@ -160,12 +160,12 @@ title: Other Experience
   <main>
     <div class="projects-container">
       <!-- Project Cards -->
-      <section class="project"
+      <section class="project" onclick="openModal(this)
         data-title="Creative Enterprise Zone Consulting"
         data-description="This report focused on the Creative Enterprise Zone neighborhood in St Paul. The report described the current conditions (demographics, fieldwork, outreach) and performed a SWOT analysis with recommendations. This gave me experience with evaluating neighborhood conditions and grant proposals."
         data-iframe="https://drive.google.com/file/d/1q5dTnp1A1N7GFHG8lfwIzD0xY3uy4cF9/preview"
         style="background-image: url('https://github.com/greg-kohler/portfolio/blob/main/CEZ.jpg?raw=true');"
-        onclick="openModal(this)>
+        onclick="openModal(this)">
         <div class="project-header">
           Creative Enterprise Zone Consulting
         </div>
@@ -176,7 +176,8 @@ title: Other Experience
         data-title="Light Rail Impact on Community Stakeholders"
         data-description="This paper researched how light rail construction and operation impacts residential stakeholders. More specifically, what the harms and benefits renters, landlords and developers experience due to light rail development and operation. Research suggests that it is expected to overall increase land value and increase property values for properties near the stations. In this paper, I uncovered how these changes in property values and land values do not impact all residential stakeholders in the same way. My goal with this paper was to help inform people about how light rail systems may impact their community and if it would be a good fit."
         data-iframe="https://drive.google.com/file/d/1oOI6T-mkDaGTzafL0ikZ5RwzrVKN387b/preview"
-        style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/5/51/Denver_light_rail_train.jpg');">
+        style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/5/51/Denver_light_rail_train.jpg');"
+        onclick="openModal(this)">
         <div class="project-header">
           Light Rail Impact on Community Stakeholders
         </div>
@@ -186,7 +187,8 @@ title: Other Experience
       <section class="project" 
         data-title="Dinkytown Business Owner Survey and Outreach"
         data-description="During 2020, Dinkytown's businesses and customers were struggling. Many customers did not know the hours of businesses or if they were open at all. Through my work as a consulting intern, I helped create a survey for the business managers to fill out, this included information on current hours, services offered, and anything else they wanted people to know. After reaching out to all the business owners, through email and in-person reminders, we had a spreadsheet of information on Dinkytown. With this information, we were able to create a webpage that showed customers all the open businesses and their hours. This website was advertised through a QR code that many businesses had in their entryways."
-        style="background-image: url('https://live.staticflickr.com/65535/48806153781_4516c002a3_b.jpg');">
+        style="background-image: url('https://live.staticflickr.com/65535/48806153781_4516c002a3_b.jpg');"
+        onclick="openModal(this)">
         <div class="project-header">
           Dinkytown Business Owner Survey and Outreach
         </div>
@@ -206,8 +208,7 @@ title: Other Experience
   </div>
 
 <script>
-  function openModal(button) {
-    const project = button.closest(".project");
+  function openModal(project) {
     document.getElementById("modal-title").innerText = project.dataset.title;
     document.getElementById("modal-description").innerText = project.dataset.description;
     document.getElementById("modal-iframe").src = project.dataset.iframe;
