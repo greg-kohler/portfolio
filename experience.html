@@ -19,7 +19,7 @@ title: Other Experience
 
   h2 {
     text-align: center;
-    padding: 5%;
+    padding: 2%;
   }
 
   .intro {
@@ -114,14 +114,18 @@ title: Other Experience
   }
 
   .close-button {
-    background: #ff5a5a;
-    color: #fff;
+    background: white;
+    color: #d3d3d3;
     border: none;
     border-radius: 6px;
     padding: 10px 20px;
     cursor: pointer;
     float: right;
     width: 10%;
+  }
+
+  .close-button:hover {
+    color: #adadad;
   }
 
   iframe {
@@ -192,7 +196,7 @@ title: Other Experience
   <!-- Single Dynamic Modal -->
   <div id="modal" class="modal">
     <div class="modal-content">
-      <button class="close-button" onclick="closeModal()">Close ✖</button>
+      <button class="close-button" onclick="closeModal()">✖</button>
       <h2 id="modal-title"></h2>
       <p id="modal-description"></p>
       <iframe id="modal-iframe" src="" allowfullscreen></iframe>
