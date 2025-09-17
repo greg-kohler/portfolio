@@ -5,99 +5,94 @@ title: Other Experience
 
 <head>
     <style>
-	body {
-	    padding-bottom: 10vh;
-	}
-        .project {
-            border: 1px solid #ccc;
-            margin-bottom: 10px;
-            margin-left: 10%;
-            padding: 10px;
-            transition: max-height 0.5s ease;
-            max-width: 80%;
-            background-color: white;
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-position: center;
-	    background-blend-mode: lighten;
-            background-color: rgba(255,255,255,0.4);
-  	    border-radius: 10px;
-	    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-	    text-align: center;
-	    text-shadow: 1px 1px white;
-        }
+    body {
+      padding: 2vh 0 10vh;
+      background-color: #f5f6fa;
+      font-family: sans-serif;
+    }
 
-        .project.expanded {
-            max-height: 5000px; /* Adjust to a reasonable maximum height */
-        }
+    .projects-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 20px;
+      padding: 0 10%;
+    }
 
-        .project-title {
-            margin: 0;
-        }
+    .project {
+      border: 1px solid #ddd;
+      border-radius: 12px;
+      background-color: white;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      transition: transform 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+    }
 
-        .toggle-button {
-            background-color: #6a738d;
-            color: #FFFFFF;
-            border: none;
-            padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-        }
+    .project:hover {
+      transform: translateY(-4px);
+    }
 
-        .toggle-button:hover {
-            background-color: #a3a9ba;
-        }
+    .project-header {
+      background-size: cover;
+      background-position: center;
+      height: 180px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      color: white;
+      text-shadow: 0 1px 4px rgba(0,0,0,0.6);
+      padding: 10px;
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
 
-        .project-details {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.5s ease, margin-top 0.5s ease;
-            background-color: rgba(255, 255, 255, 0.9);
-            margin-top: 0;/* White background color with 50% opacity */
-	    border-radius: 10px;
-        }
+    .project-body {
+      padding: 15px;
+    }
 
-        .project.expanded .project-details {
-            max-height: 1000px;
-            margin-top: 10px;
-        }
+    .toggle-button {
+      background-color: #6a738d;
+      color: #fff;
+      border: none;
+      padding: 8px 16px;
+      font-size: 14px;
+      cursor: pointer;
+      border-radius: 6px;
+      transition: background-color 0.3s ease;
+      margin: 10px 0;
+    }
 
-        .expandcontent {
-            text-align: center;
-        }
+    .toggle-button:hover {
+      background-color: #a3a9ba;
+    }
 
-        .centered-image {
-            display: block;
-            margin: 0 auto;
-	    margin-bottom: 2.5vh;
-        }
-        .background-image {
-            background-repeat: no-repeat;
-        }
-        .projectinfo {
-        	max-width: 95%;
-            margin-left: 2.5%;
-            text-align: center;
-        }
-	iframe {
-		width: 60vw;
-		height: 80vh;
-	}
-	.intro {
-		width: 80%;
-		padding-top: 2vh;
-		padding-bottom: 2vh;
-		text-align: center;
-		justify-content: center;
-		margin-left: 10%;
-	}
-	.imgsource {
-		font-size: 8px;
-		text-align: right;
-	}
-    </style>
+    .project-details {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s ease, padding 0.5s ease;
+      padding: 0 15px;
+    }
+
+    .project.expanded .project-details {
+      max-height: 1000px; /* enough space to show iframe */
+      padding: 15px;
+    }
+
+    .projectinfo {
+      margin-bottom: 15px;
+      font-size: 0.95rem;
+      line-height: 1.4;
+    }
+
+    iframe {
+      width: 100%;
+      height: 300px;
+      border-radius: 8px;
+      border: none;
+    }
+  </style>
 </head>
 <body>
     <header>
@@ -108,71 +103,64 @@ title: Other Experience
 	<div class="intro">
 	    <p style="font-weight:bold;">Below are summaries of my experiences related to consulting, urban planning, and more. These experiences are not directly related to GIS and spatial analysis, but provide insight into my other skills. The majority of these projects are in the form of reports. Explore each of my experiences by clicking "Learn More". Click on the images or the "Pop-Out" button of the reports to view them in greater detail.</p>
 	</div>
-        <section class="project" style="background-image: url('https://github.com/greg-kohler/portfolio/blob/main/CEZ.jpg?raw=true');">
-            <h2 class="project-title">Creative Enterprise Zone Consulting</h2>
-            <button class="toggle-button" onclick="toggleDetails(this)">Learn More</button>
-            <div class="project-details">
-                <p class="projectinfo">This report focused on the Creative Enterprise Zone neighborhood in St Paul. This is an important neighborhood that was in a period of transition out of industrial uses. The report described the current conditions of the area, which included demographic research, field work, and community outreach. With these conditions my team was able to perform a SWOT analysis of the area and provide recommendations for the future of the area. This project gave me experience with evaluating neighborhood conditions, as well as experience with grant proposals.  </p>
-                <div class="expandcontent">
-                    <iframe class="centered-image" src="https://drive.google.com/file/d/1q5dTnp1A1N7GFHG8lfwIzD0xY3uy4cF9/preview" h frameborder="0" allowfullscreen></iframe>
-                </div>
-            </div>
-        </section>
-
-        <section class="project" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/5/51/Denver_light_rail_train.jpg');">
-            <h2 class="project-title">Light Rail Impact on Community Stakeholders</h2>
-            <button class="toggle-button" onclick="toggleDetails(this)">Learn More</button>
-            <div class="project-details">
-                <p class="projectinfo">This paper researched how light rail construction and operation impacts residential stakeholders. More specifically, what the harms and benefits renters, landlords and developers experience due to light rail development and operation. Research suggests that it is expected to overall increase land value and increase property values for properties near the stations. In this paper, I uncovered how these changes in property values and land values do not impact all residential stakeholders in the same way. My goal with this paper was to help inform people about how light rail systems may impact their community and if it would be a good fit.</p>
-		<div class="expandcontent">
-                    <iframe class="centered-image" src="https://drive.google.com/file/d/1oOI6T-mkDaGTzafL0ikZ5RwzrVKN387b/preview" h frameborder="0" allowfullscreen></iframe>
-                </div>
-		<div class="imgsource">
-			Image Source: Greg Goebel from Loveland CO, USA, CC BY-SA 2.0
-		</div> 
+	<div class="projects-container">
+      <section class="project">
+        <div class="project-header" style="background-image: url('https://github.com/greg-kohler/portfolio/blob/main/CEZ.jpg?raw=true');">
+          Creative Enterprise Zone Consulting
+        </div>
+        <div class="project-body">
+          <button class="toggle-button" onclick="toggleDetails(this)">Learn More</button>
+          <div class="project-details">
+            <p class="projectinfo">
+              This report focused on the Creative Enterprise Zone neighborhood in St Paul. 
+              The report described the current conditions of the area (demographics, fieldwork, outreach) 
+              and performed a SWOT analysis with recommendations for the future. 
+              This project gave me experience with evaluating neighborhood conditions and grant proposals.
+            </p>
+            <iframe src="https://drive.google.com/file/d/1q5dTnp1A1N7GFHG8lfwIzD0xY3uy4cF9/preview" allowfullscreen></iframe>
+          </div>
+        </div>
+      </section>
+	  <section class="project">
+        <div class="project-header" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/5/51/Denver_light_rail_train.jpg');">
+          Light Rail Impact on Community Stakeholders
+        </div>
+        <div class="project-body">
+          <button class="toggle-button" onclick="toggleDetails(this)">Learn More</button>
+          <div class="project-details">
+            <p class="projectinfo">
+              This paper researched how light rail construction and operation impacts residential stakeholders. More specifically, what the harms and benefits renters, landlords and developers experience due to light rail development and operation. Research suggests that it is expected to overall increase land value and increase property values for properties near the stations. In this paper, I uncovered how these changes in property values and land values do not impact all residential stakeholders in the same way. My goal with this paper was to help inform people about how light rail systems may impact their community and if it would be a good fit.
+            </p>
+            <iframe class="centered-image" src="https://drive.google.com/file/d/1oOI6T-mkDaGTzafL0ikZ5RwzrVKN387b/preview" h frameborder="0" allowfullscreen></iframe>
+          </div>
+        </div>
+      </section>
+	  <section class="project">
+        <div class="project-header" style="background-image: url('https://live.staticflickr.com/65535/48806153781_4516c002a3_b.jpg');">
+          Dinkytown Business Owner Survey and Outreach
+        </div>
+        <div class="project-body">
+          <button class="toggle-button" onclick="toggleDetails(this)">Learn More</button>
+          <div class="project-details">
+            <p class="projectinfo">
+              During 2020, Dinkytown's businesses and customers were struggling. Many customers did not know the hours of businesses or if they were open at all. Through my work as a consulting intern, I helped create a survey for the business managers to fill out, this included information on current hours, services offered, and anything else they wanted people to know. After reaching out to all the business owners, through email and in-person reminders, we had a spreadsheet of information on Dinkytown. With this information, we were able to create a webpage that showed customers all the open businesses and their hours. This website was advertsited through a QR code that many businesses had in their entryways.
+            </p>
+            <iframe class="centered-image" src="https://drive.google.com/file/d/1oOI6T-mkDaGTzafL0ikZ5RwzrVKN387b/preview" h frameborder="0" allowfullscreen></iframe>
+          </div>
+        </div>
+      </section>
 		
-            </div>
-        </section>
-        
-        <section class="project" style="background-image: url('https://live.staticflickr.com/65535/48806153781_4516c002a3_b.jpg');">
-            <h2 class="project-title">Dinkytown Business Owner Survey and Outreach</h2>
-            <button class="toggle-button" onclick="toggleDetails(this)">Learn More</button>
-            <div class="project-details">
-                <p class="projectinfo">During 2020, Dinkytown's businesses and customers were struggling. Many customers did not know the hours of businesses or if they were open at all. Through my work as a consulting intern, I helped create a survey for the business managers to fill out, this included information on current hours, services offered, and anything else they wanted people to know. After reaching out to all the business owners, through email and in-person reminders, we had a spreadsheet of information on Dinkytown. With this information, we were able to create a webpage that showed customers all the open businesses and their hours. This website was advertsited through a QR code that many businesses had in their entryways.</p>
-		<div class="imgsource">
-			Image Source: Flickr
-		</div> 
-            </div>
-        </section>
+    </div>
     </main>
 
     <footer>
         <!-- Your footer content goes here -->
     </footer>
 
-    <script>
-function toggleDetails(button) {
-    const project = button.parentElement;
-    const projectDetails = project.querySelector('.project-details');
-
-    if (project.classList.contains('expanded')) {
-        projectDetails.style.maxHeight = '0';
-        button.textContent = 'Learn More';
-        
-        // Delay removing the margin until the animation is complete
-        setTimeout(() => {
-            projectDetails.style.marginTop = '0';
-        }, 300); // Adjust the delay to match your animation duration (0.5s in this case)
-        
-        project.classList.remove('expanded');
-    } else {
-        const scrollHeight = projectDetails.scrollHeight;
-        projectDetails.style.maxHeight = scrollHeight + 'px';
-        projectDetails.style.marginTop = '10px';
-        project.classList.add('expanded');
-        button.textContent = 'Collapse';
+  <script>
+    function toggleDetails(button) {
+      const project = button.closest(".project");
+      project.classList.toggle("expanded");
     }
-}
-
-    </script>
+  </script>
 </body>
