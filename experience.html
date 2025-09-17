@@ -48,6 +48,7 @@ title: Other Experience
       overflow: hidden;
       text-align: center;
       transition: box-shadow 0.3s ease, border-color 0.3s ease;
+      break-inside: avoid;
     }
 
     /* FIX: remove transform to stop flicker */
@@ -68,6 +69,10 @@ title: Other Experience
       padding: 10px;
       font-weight: bold;
       font-size: 1.2rem;
+    }
+    .project.expanded {
+      width: 100%;           /* take full container width */
+      break-inside: avoid;   /* don’t split the expanded card */
     }
 
     .project-body {
