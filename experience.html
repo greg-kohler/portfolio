@@ -1,208 +1,209 @@
----
-layout: master
-title: Other Experience
----
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <style>
-    body {
-      padding: 2vh 0 10vh;
-      background-color: #f5f6fa;
-      font-family: sans-serif;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio</title>
+<style>
+  body {
+    margin: 0;
+    padding: 2vh 0 10vh;
+    background-color: #f5f6fa;
+    font-family: sans-serif;
+  }
 
-    .intro {
-      width: 80%;
-      margin: 0 auto 30px;
-      text-align: center;
-      font-weight: bold;
-    }
+  header {
+    text-align: center;
+    padding: 2vh 10%;
+  }
 
-    /* Masonry-style grid */
-    .projects-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      column-count: 3; /* Adjust number of columns for wide screens */
-      column-gap: 20px;
-      padding: 0 10%;
-    }
+  .intro {
+    width: 80%;
+    padding: 2vh 10%;
+    text-align: center;
+    margin: 0 auto 3vh auto;
+    font-weight: bold;
+  }
 
-    @media (max-width: 1000px) {
-      .projects-container {
-        column-count: 2;
-      }
-    }
+  .projects-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 20px;
+    padding: 0 10%;
+  }
 
-    @media (max-width: 600px) {
-      .projects-container {
-        column-count: 1;
-      }
-    }
+  .project {
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    background-color: white;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    text-align: center;
+    cursor: pointer;
+  }
 
-    .project {
-      display: inline-block;
-      width: 100%;
-      margin: 0 0 20px;
-      border: 1px solid #ddd;
-      border-radius: 12px;
-      background-color: white;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-      overflow: hidden;
-      transition: transform 0.3s ease;
-      text-align: center;
-    }
+  .project:hover {
+    transform: translateY(-4px);
+  }
 
-    .project-header {
-      background-size: cover;
-      background-position: center;
-      height: 180px;
-      display: flex;
-      align-items: flex-end;
-      justify-content: center;
-      color: white;
-      text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
-      padding: 10px;
-      font-weight: bold;
-      font-size: 1.2rem;
-    }
+  .project-header {
+    background-size: cover;
+    background-position: center;
+    height: 180px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    color: white;
+    text-shadow: 0 1px 4px rgba(0,0,0,0.6);
+    padding: 10px;
+    font-weight: bold;
+    font-size: 1.2rem;
+  }
 
-    .project-body {
-      padding: 15px;
-    }
+  .toggle-button {
+    background-color: #6a738d;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+    margin: 15px 0;
+  }
 
-    .toggle-button {
-      background-color: #6a738d;
-      color: #fff;
-      border: none;
-      padding: 8px 16px;
-      font-size: 14px;
-      cursor: pointer;
-      border-radius: 6px;
-      transition: background-color 0.3s ease;
-      margin: 10px 0;
-    }
+  .toggle-button:hover {
+    background-color: #a3a9ba;
+  }
 
-    .toggle-button:hover {
-      background-color: #a3a9ba;
-    }
+  /* Modal Styles */
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    inset: 0;
+    background: rgba(0,0,0,0.7);
+    backdrop-filter: blur(3px);
+    justify-content: center;
+    align-items: center;
+  }
 
-    .project-details {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.5s ease, padding 0.5s ease;
-      padding: 0 15px;
-    }
+  .modal-content {
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    max-width: 900px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    animation: fadeIn 0.3s ease;
+  }
 
-    .project.expanded .project-details {
-      max-height: 1000px; /* enough to reveal content */
-      padding: 15px;
-    }
+  .close-button {
+    background: #ff5a5a;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 6px 12px;
+    cursor: pointer;
+    float: right;
+  }
 
-    .projectinfo {
-      margin-bottom: 15px;
-      font-size: 0.95rem;
-      line-height: 1.4;
-      text-align: left;
-    }
+  iframe {
+    width: 100%;
+    height: 400px;
+    border-radius: 8px;
+    border: none;
+    margin-top: 15px;
+  }
 
-    iframe {
-      width: 100%;
-      height: 300px;
-      border-radius: 8px;
-      border: none;
-    }
-  </style>
+  .imgsource {
+    font-size: 8px;
+    text-align: right;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+  }
+</style>
 </head>
-
 <body>
   <header>
-    <!-- Your header content goes here -->
+    <h1>My Portfolio</h1>
   </header>
 
+  <div class="intro">
+    <p>Below are summaries of my experiences related to consulting, urban planning, and more. 
+    These experiences are not directly related to GIS and spatial analysis, but provide insight 
+    into my other skills. The majority of these projects are in the form of reports. Explore each 
+    of my experiences by clicking "Learn More". Click on the images or the "Pop-Out" button of 
+    the reports to view them in greater detail.</p>
+  </div>
+
   <main>
-    <div class="intro">
-      <p>
-        Below are summaries of my experiences related to consulting, urban planning, and more. 
-        These experiences are not directly related to GIS and spatial analysis, but provide insight 
-        into my other skills. The majority of these projects are in the form of reports. Explore each 
-        of my experiences by clicking "Learn More". Click on the images or the "Pop-Out" button of the 
-        reports to view them in greater detail.
-      </p>
-    </div>
-
     <div class="projects-container">
-
-      <!-- Project 1 -->
-      <section class="project">
-        <div class="project-header" style="background-image: url('https://github.com/greg-kohler/portfolio/blob/main/CEZ.jpg?raw=true');">
+      <!-- Project Cards -->
+      <section class="project" 
+        data-title="Creative Enterprise Zone Consulting"
+        data-description="This report focused on the Creative Enterprise Zone neighborhood in St Paul. The report described the current conditions (demographics, fieldwork, outreach) and performed a SWOT analysis with recommendations. This gave me experience with evaluating neighborhood conditions and grant proposals."
+        data-iframe="https://drive.google.com/file/d/1q5dTnp1A1N7GFHG8lfwIzD0xY3uy4cF9/preview"
+        style="background-image: url('https://github.com/greg-kohler/portfolio/blob/main/CEZ.jpg?raw=true');">
+        <div class="project-header">
           Creative Enterprise Zone Consulting
         </div>
-        <div class="project-body">
-          <button class="toggle-button" onclick="toggleDetails(this)">Learn More</button>
-          <div class="project-details">
-            <p class="projectinfo">
-              This report focused on the Creative Enterprise Zone neighborhood in St Paul. 
-              The report described the current conditions (demographics, fieldwork, outreach) 
-              and performed a SWOT analysis with recommendations for the future. 
-              This project gave me experience with evaluating neighborhood conditions and grant proposals.
-            </p>
-            <iframe src="https://drive.google.com/file/d/1q5dTnp1A1N7GFHG8lfwIzD0xY3uy4cF9/preview" allowfullscreen></iframe>
-          </div>
-        </div>
+        <button class="toggle-button" onclick="openModal(this)">Learn More</button>
       </section>
 
-      <!-- Project 2 -->
-      <section class="project">
-        <div class="project-header" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/5/51/Denver_light_rail_train.jpg');">
-          Light Rail Impact on Community Stakeholders
+      <section class="project" 
+        data-title="Urban Planning Report 2"
+        data-description="This project involved analyzing urban traffic patterns and public space usage. We gathered field data, conducted surveys, and provided actionable recommendations for city planners."
+        data-iframe="https://drive.google.com/file/d/YOUR_SECOND_PROJECT_ID/preview"
+        style="background-image: url('https://github.com/greg-kohler/portfolio/blob/main/SecondProject.jpg?raw=true');">
+        <div class="project-header">
+          Urban Planning Report 2
         </div>
-        <div class="project-body">
-          <button class="toggle-button" onclick="toggleDetails(this)">Learn More</button>
-          <div class="project-details">
-            <p class="projectinfo">
-              This paper researched how light rail construction and operation impacts residential stakeholders. 
-              More specifically, what the harms and benefits renters, landlords and developers experience due 
-              to light rail development and operation. Research suggests that it overall increases land and 
-              property values near stations. In this paper, I uncovered how these changes do not impact all 
-              residential stakeholders in the same way. My goal was to inform people about how light rail systems 
-              may impact their community and if it would be a good fit.
-            </p>
-            <iframe src="https://drive.google.com/file/d/1oOI6T-mkDaGTzafL0ikZ5RwzrVKN387b/preview" allowfullscreen></iframe>
-          </div>
-        </div>
+        <button class="toggle-button" onclick="openModal(this)">Learn More</button>
       </section>
 
-      <!-- Project 3 -->
-      <section class="project">
-        <div class="project-header" style="background-image: url('https://live.staticflickr.com/65535/48806153781_4516c002a3_b.jpg');">
-          Dinkytown Business Owner Survey and Outreach
+      <section class="project" 
+        data-title="Community Engagement Project"
+        data-description="This report focused on community engagement strategies for local development projects. It included demographic research, stakeholder interviews, and strategic planning recommendations."
+        data-iframe="https://drive.google.com/file/d/YOUR_THIRD_PROJECT_ID/preview"
+        style="background-image: url('https://github.com/greg-kohler/portfolio/blob/main/ThirdProject.jpg?raw=true');">
+        <div class="project-header">
+          Community Engagement Project
         </div>
-        <div class="project-body">
-          <button class="toggle-button" onclick="toggleDetails(this)">Learn More</button>
-          <div class="project-details">
-            <p class="projectinfo">
-              During 2020, Dinkytown's businesses and customers were struggling. Many customers 
-              did not know the hours of businesses or if they were open at all. Through my work 
-              as a consulting intern, I helped create a survey for the business managers to fill out, 
-              covering hours, services, and updates. After outreach, we created a webpage showing open 
-              businesses and hours, promoted via QR codes in storefronts. 
-            </p>
-            <iframe src="https://drive.google.com/file/d/1oOI6T-mkDaGTzafL0ikZ5RwzrVKN387b/preview" allowfullscreen></iframe>
-          </div>
-        </div>
+        <button class="toggle-button" onclick="openModal(this)">Learn More</button>
       </section>
-
     </div>
   </main>
 
-  <footer>
-    <!-- Your footer content goes here -->
-  </footer>
+  <!-- Single Dynamic Modal -->
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <button class="close-button" onclick="closeModal()">Close ✖</button>
+      <h2 id="modal-title"></h2>
+      <p id="modal-description"></p>
+      <iframe id="modal-iframe" src="" allowfullscreen></iframe>
+    </div>
+  </div>
 
-  <script>
-    function toggleDetails(button) {
-      const project = button.closest(".project");
-      project.classList.toggle("expanded");
-    }
-  </script>
+<script>
+  function openModal(button) {
+    const project = button.closest(".project");
+    document.getElementById("modal-title").innerText = project.dataset.title;
+    document.getElementById("modal-description").innerText = project.dataset.description;
+    document.getElementById("modal-iframe").src = project.dataset.iframe;
+    document.getElementById("modal").style.display = "flex";
+  }
+
+  function closeModal() {
+    document.getElementById("modal").style.display = "none";
+    document.getElementById("modal-iframe").src = ""; // stop video/audio if applicable
+  }
+</script>
 </body>
+</html>
