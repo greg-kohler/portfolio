@@ -261,12 +261,12 @@ title: GIS Experience
     document.getElementById("modal-title").innerText = project.dataset.title;
     document.getElementById("modal-description").innerText = project.dataset.description;
 	if (project.dataset.iframe) {
-		document.getElementById("modal-iframe").src = project.dataset.iframe;
-		iframe.style.display = "block";}
-	else {
-		document.getElementById("modal-iframe").style.display = "none";}
-    document.getElementById("modal").style.display = "flex";
-  }
+      iframe.src = project.dataset.iframe;
+      iframe.style.display = "block"; // show iframe if it exists
+    } else {
+      iframe.style.display = "none"; // hide iframe if not provided
+      iframe.src = ""; // clear any old iframe src
+    }
 
   function closeModal() {
     document.getElementById("modal").style.display = "none";
