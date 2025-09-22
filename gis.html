@@ -259,7 +259,8 @@ title: GIS Experience
   function openModal(project) {
     document.getElementById("modal-title").innerText = project.dataset.title;
     document.getElementById("modal-description").innerText = project.dataset.description;
-    document.getElementById("modal-iframe").src = project.dataset.iframe;
+	if (project.dataset.iframe) {
+		document.getElementById("modal-iframe").src = project.dataset.iframe;}
     document.getElementById("modal").style.display = "flex";
   }
 
