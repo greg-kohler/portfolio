@@ -261,9 +261,10 @@ title: GIS Experience
     document.getElementById("modal-title").innerText = project.dataset.title;
     document.getElementById("modal-description").innerText = project.dataset.description;
 	if (project.dataset.iframe) {
-		document.getElementById("modal-iframe").src = project.dataset.iframe;}
+		document.getElementById("modal-iframe").src = project.dataset.iframe;
+		iframe.style.display = "block";}
 	else {
-		document.getElementbyId("modal-iframe").style.display = "none";}
+		document.getElementById("modal-iframe").style.display = "none";}
     document.getElementById("modal").style.display = "flex";
   }
 
