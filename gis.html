@@ -170,7 +170,7 @@ title: GIS Experience
       <section class="project"
         data-title="CRSP Form Generator"
         data-description="For this project, I created a Python pipeline in Jupyter Notebooks that ran through a large database provided by MnDOT. This pipeline generated 200+ informational layouts about intersections, road curves, and road segments and exported them to PDFs. Each layout had 30+ fields that were filled out using a SearchCursor that ran through the database. This pipeline reduced workload and allowed the team to make changes easily and efficiently."
-        data-iframe="https://raw.githubusercontent.com/greg-kohler/portfolio/main/Rural_Curve_Wadena_P98_C.80.4.23.006.jpg?raw=true"
+        data-image="https://raw.githubusercontent.com/greg-kohler/portfolio/main/Rural_Curve_Wadena_P98_C.80.4.23.006.jpg?raw=true"
         style="background-image: url('https://scholarlykitchen.sspnet.org/wp-content/uploads/2019/10/iStock-176740990.jpg');"
         onclick="openModal(this)">
         <div class="project-header">
@@ -252,25 +252,62 @@ title: GIS Experience
       <button class="close-button" onclick="closeModal()">✖</button>
       <h2 id="modal-title"></h2>
       <p id="modal-description"></p>
-      <iframe id="modal-iframe" src="" allowfullscreen></iframe>
+      <iframe id="modal-iframe" style="display:none;" src="" allowfullscreen></iframe>
+      <img id="modal-image" style="display:none; max-width:100%;" />
+      <a id="modal-extra" 
+       style="display:none; margin-top:1em; padding:0.5em 1em; background:#007bff; color:white; text-decoration:none; border-radius:5px;">
+      </a>
     </div>
   </div>
 
 <script>
   function openModal(project) {
+    // Core title + description
     document.getElementById("modal-title").innerText = project.dataset.title;
     document.getElementById("modal-description").innerText = project.dataset.description;
-	if (project.dataset.iframe) {
+
+    const iframe = document.getElementById("modal-iframe");
+    const image = document.getElementById("modal-image");
+    const extraBtn = document.getElementById("modal-extra");
+
+    // Reset everything first
+    iframe.style.display = "none";
+    iframe.src = "";
+    image.style.display = "none";
+    image.src = "";
+    extraBtn.style.display = "none";
+    extraBtn.href = "#";
+    extraBtn.innerText = "";
+
+    // Handle iframe
+    if (project.dataset.iframe) {
       iframe.src = project.dataset.iframe;
-      iframe.style.display = "block"; // show iframe if it exists
-    } else {
-      iframe.style.display = "none"; // hide iframe if not provided
-      iframe.src = ""; // clear any old iframe src
+      iframe.style.display = "block";
     }
+
+    // Handle image
+    if (project.dataset.image) {
+      image.src = project.dataset.image;
+      image.style.display = "block";
+    }
+
+    // Handle extra button/link
+    if (project.dataset.link) {
+      extraBtn.href = project.dataset.link;
+      extraBtn.innerText = project.dataset.linktext || "Learn More";
+      extraBtn.style.display = "inline-block";
+    }
+
+    // Finally open modal
+    document.getElementById("modal").style.display = "flex";
+  }
 
   function closeModal() {
     document.getElementById("modal").style.display = "none";
-    document.getElementById("modal-iframe").src = ""; // stop video/audio if applicable
+
+    // Clear media so things like videos stop playing
+    document.getElementById("modal-iframe").src = "";
+    document.getElementById("modal-image").src = "";
   }
 </script>
 </body>
