@@ -261,6 +261,8 @@ title: GIS Experience
     document.getElementById("modal-description").innerText = project.dataset.description;
 	if (project.dataset.iframe) {
 		document.getElementById("modal-iframe").src = project.dataset.iframe;}
+	else {
+		document.getElementbyId("modal-frame").style.display = "none";}
     document.getElementById("modal").style.display = "flex";
   }
 
