@@ -202,13 +202,17 @@ title: Other Experience
     </div>
   </main>
 
-  <!-- Single Dynamic Modal -->
+    <!-- Single Dynamic Modal -->
   <div id="modal" class="modal">
     <div class="modal-content">
       <button class="close-button" onclick="closeModal()">✖</button>
       <h2 id="modal-title"></h2>
       <p id="modal-description"></p>
-      <iframe id="modal-iframe" src="" allowfullscreen></iframe>
+      <iframe id="modal-iframe" style="display:none;" src="" allowfullscreen></iframe>
+      <img id="modal-image" style="display:none; max-width:100%; height: auto;" />
+      <a id="modal-extra" 
+       style="display:none; margin-top:1em; padding:0.5em 1em; background:#648381; color:white; text-decoration:none; border-radius:5px;">
+      </a>
     </div>
   </div>
 <script>
