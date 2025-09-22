@@ -211,18 +211,54 @@ title: Other Experience
       <iframe id="modal-iframe" src="" allowfullscreen></iframe>
     </div>
   </div>
-
 <script>
   function openModal(project) {
+    // Core title + description
     document.getElementById("modal-title").innerText = project.dataset.title;
     document.getElementById("modal-description").innerText = project.dataset.description;
-    document.getElementById("modal-iframe").src = project.dataset.iframe;
+
+    const iframe = document.getElementById("modal-iframe");
+    const image = document.getElementById("modal-image");
+    const extraBtn = document.getElementById("modal-extra");
+
+    // Reset everything first
+    iframe.style.display = "none";
+    iframe.src = "";
+    image.style.display = "none";
+    image.src = "";
+    extraBtn.style.display = "none";
+    extraBtn.href = "#";
+    extraBtn.innerText = "";
+
+    // Handle iframe
+    if (project.dataset.iframe) {
+      iframe.src = project.dataset.iframe;
+      iframe.style.display = "block";
+    }
+
+    // Handle image
+    if (project.dataset.image) {
+      image.src = project.dataset.image;
+      image.style.display = "block";
+    }
+
+    // Handle extra button/link
+    if (project.dataset.link) {
+      extraBtn.href = project.dataset.link;
+      extraBtn.innerText = project.dataset.linktext || "Learn More";
+      extraBtn.style.display = "inline-block";
+    }
+
+    // Finally open modal
     document.getElementById("modal").style.display = "flex";
   }
 
   function closeModal() {
     document.getElementById("modal").style.display = "none";
-    document.getElementById("modal-iframe").src = ""; // stop video/audio if applicable
+
+    // Clear media so things like videos stop playing
+    document.getElementById("modal-iframe").src = "";
+    document.getElementById("modal-image").src = "";
   }
 </script>
 </body>
