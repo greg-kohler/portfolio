@@ -2,173 +2,186 @@
 layout: master
 title: GIS Experience
 ---
+
 <head>
-<title>GIS Experience</title>
-<style>
-  body {
-    margin: 0;
-    padding: 2vh 0 10vh;
-    background-color: #f5f6fa;
-    font-family: sans-serif;
-  }
+  <title>GIS Experience</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 2vh 0 10vh;
+      background-color: #f5f6fa;
+      font-family: sans-serif;
+    }
 
-  header {
-    text-align: center;
-    padding: 2vh 10%;
-  }
+    header {
+      text-align: center;
+      padding: 2vh 10%;
+    }
 
-  h2 {
-    text-align: center;
-    padding: 2%;
-  }
+    h2 {
+      text-align: center;
+      padding: 2%;
+    }
 
-  .intro {
-    width: 80%;
-    padding: 2vh 10%;
-    text-align: center;
-    margin: 0 auto 3vh auto;
-    font-weight: bold;
-  }
+    .intro {
+      width: 80%;
+      padding: 2vh 10%;
+      text-align: center;
+      margin: 0 auto 3vh auto;
+      font-weight: bold;
+    }
 
-  .projects-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 20px;
-    padding: 0 10%;
-  }
+    .projects-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 20px;
+      padding: 0 10%;
+    }
 
-  .project {
-    align-items: center; /* Vertically centers items */
-    border: 1px solid #ddd;
-    border-radius: 12px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    transition: transform 0.3s ease;
-    text-align: center;
-    cursor: pointer;
-    background-size: cover;
-    background-blend-mode: lighten;
-    background-color: rgba(255,255,255,0.6);
-    display: grid;
-  }
+    .project {
+      align-items: center;
+      /* Vertically centers items */
+      border: 1px solid #ddd;
+      border-radius: 12px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      transition: transform 0.3s ease;
+      text-align: center;
+      cursor: pointer;
+      background-size: cover;
+      background-blend-mode: lighten;
+      background-color: rgba(255, 255, 255, 0.6);
+      display: grid;
+    }
 
-  .project:hover {
-    transform: translateY(-4px);
-    background-color: rgba(255,255,255,0.4);
-  }
+    .project:hover {
+      transform: translateY(-4px);
+      background-color: rgba(255, 255, 255, 0.4);
+    }
 
-  .project-header {
-    background-size: cover;
-    background-position: center;
-    height: 180px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: black;
-    padding: 10px;
-    font-weight: bold;
-    font-size: 1.2rem;
-  }
+    .project-header {
+      background-size: cover;
+      background-position: center;
+      height: 180px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: black;
+      padding: 10px;
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
 
-  .project-header:hover {
-  color: black;
-  text-shadow:
-    -1px -1px 0 rgba(255,255,255,0.7),
-    1px -1px 0 rgba(255,255,255,0.7),
-    -1px 1px 0 rgba(255,255,255,0.7),
-    1px 1px 0 rgba(255,255,255,0.7); /* Adjust offsets and color for desired effect */
-  }
+    .project-header:hover {
+      color: black;
+      text-shadow:
+        -1px -1px 0 rgba(255, 255, 255, 0.7),
+        1px -1px 0 rgba(255, 255, 255, 0.7),
+        -1px 1px 0 rgba(255, 255, 255, 0.7),
+        1px 1px 0 rgba(255, 255, 255, 0.7);
+      /* Adjust offsets and color for desired effect */
+    }
 
-  .toggle-button {
-    background-color: #797979;
-    color: #fff;
-    border: none;
-    padding: 8px 16px;
-    font-size: 14px;
-    cursor: pointer;
-    border-radius: 6px;
-    transition: background-color 0.3s ease;
-    margin: 15px 0;
-  }
+    .toggle-button {
+      background-color: #797979;
+      color: #fff;
+      border: none;
+      padding: 8px 16px;
+      font-size: 14px;
+      cursor: pointer;
+      border-radius: 6px;
+      transition: background-color 0.3s ease;
+      margin: 15px 0;
+    }
 
-  .toggle-button:hover {
-    background-color: #AFAFAF;
-  }
-  
-  .background-image {
-    background-repeat: no-repeat;
-    display: block;
-    margin: auto;
-    background-size: cover;
-  }
-  /* Modal Styles */
-  .modal {
-    display: none;
-    position: fixed;
-    z-index: 9999;
-    inset: 0;
-    background: rgba(0,0,0,0.7);
-    backdrop-filter: blur(3px);
-    justify-content: center;
-    align-items: center;
-  }
+    .toggle-button:hover {
+      background-color: #AFAFAF;
+    }
 
-  .modal-content {
-    background: #fff;
-    padding: 20px;
-    border-radius: 12px;
-    max-width: 900px;
-    width: 90%;
-    max-height: 90vh;
-    overflow-y: auto;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-    animation: fadeIn 0.3s ease;
-  }
+    .background-image {
+      background-repeat: no-repeat;
+      display: block;
+      margin: auto;
+      background-size: cover;
+    }
 
-  .close-button {
-    background: white;
-    color: #797979;
-    border: none;
-    cursor: pointer;
-    text-align: left;
-    font-size: 1.5em;
-  }
+    /* Modal Styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(3px);
+      justify-content: center;
+      align-items: center;
+    }
 
-  .close-button:hover {
-    color: black;
-  }
+    .modal-content {
+      background: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      max-width: 900px;
+      width: 90%;
+      max-height: 90vh;
+      overflow-y: auto;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      animation: fadeIn 0.3s ease;
+    }
 
-  iframe {
-    width: 100%;
-    height: 400px;
-    border-radius: 8px;
-    border: none;
-    margin-top: 15px;
-  }
+    .close-button {
+      background: white;
+      color: #797979;
+      border: none;
+      cursor: pointer;
+      text-align: left;
+      font-size: 1.5em;
+    }
 
-  .imgsource {
-    font-size: 8px;
-    text-align: right;
-  }
+    .close-button:hover {
+      color: black;
+    }
 
-  @keyframes fadeIn {
-    from { opacity: 0; transform: scale(0.95); }
-    to { opacity: 1; transform: scale(1); }
-  }
-</style>
+    iframe {
+      width: 100%;
+      height: 400px;
+      border-radius: 8px;
+      border: none;
+      margin-top: 15px;
+    }
+
+    .imgsource {
+      font-size: 8px;
+      text-align: right;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: scale(0.95);
+      }
+
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+  </style>
 </head>
+
 <body>
-    <header>
-        <!-- Your header content goes here -->
-    </header>
-	<div class="intro">
-	    <p style="font-weight: bold;">Below are summaries of various professional and academic GIS experiences. These include projects, reports, applications, and presentations I have created using my expertise in GIS. Explore each of my experiences by clicking on a card for further details.</p>
-	</div>
-<main>
+  <header>
+    <!-- Your header content goes here -->
+  </header>
+  <div class="intro">
+    <p style="font-weight: bold;">Below are summaries of various professional and academic GIS experiences. These
+      include projects, reports, applications, and presentations I have created using my expertise in GIS. Explore each
+      of my experiences by clicking on a card for further details.</p>
+  </div>
+  <main>
     <div class="projects-container">
       <!-- Project Cards -->
-      <section class="project"
-        data-title="CRSP Form Generator"
+      <section class="project" data-title="CRSP Form Generator"
         data-description="For this project, I created a Python pipeline in Jupyter Notebooks that ran through a large database provided by MnDOT. This pipeline generated 200+ informational layouts about intersections, road curves, and road segments and exported them to PDFs. Each layout had 30+ fields that were filled out using a SearchCursor that ran through the database. This pipeline reduced workload and allowed the team to make changes easily and efficiently."
         data-image="https://raw.githubusercontent.com/greg-kohler/portfolio/main/Rural_Curve_Wadena_P98_C.80.4.23.006.jpg?raw=true"
         style="background-image: url('https://scholarlykitchen.sspnet.org/wp-content/uploads/2019/10/iStock-176740990.jpg');"
@@ -178,8 +191,7 @@ title: GIS Experience
         </div>
       </section>
 
-      <section class="project" 
-        data-title="I-94 Removal Route Analysis"
+      <section class="project" data-title="I-94 Removal Route Analysis"
         data-description="Freeway removal is a topic in transportation that is often opposed due to fears of increasing commute times. This project explored the changes in vehicle service area and length, or how far someone can get from one point or how far someone can be away to reach a point. The change was compared before and after the removal of I-94 between downtown Minneapolis and downtown Saint Paul. This report summarized the methods used to build the network dataset and service area analysis layers. It showcased the results and compared the differences in service areas before and after the removal of the freeway. This report also validated the results by comparing the network to ESRI’s network dataset and discussed the results and lessons learned."
         data-iframe="https://drive.google.com/file/d/1DFYjF6gFkOBTlTvmiHotn3uC8uMQfZrq/preview"
         style="background-image: url('https://github.com/greg-kohler/portfolio/blob/main/94RemovalLine.png?raw=true');"
@@ -189,11 +201,10 @@ title: GIS Experience
         </div>
       </section>
 
-      <section class="project" 
-        data-title="Guest Star Map (Web Scraping)"
+      <section class="project" data-title="Guest Star Map (Web Scraping)"
         data-description="This project visualizes the birthplaces of guest stars from The Simpsons as a cluster map with donut icons representing the number of guest voices from each city or town. Each icon can be clicked on to learn about the amount of guest stars from each area. The map is generated by scraping Wikipedia for guest star birthplaces, geocoding their birth city or town, and clustering the results. The final map is saved as an HTML. The notebook can scrape guest stars from any TV show with a similar Wikipedia page."
-		data-iframe="https://gregkohler.com/simpsons_map.html"
-		data-link="https://github.com/greg-kohler/simpsonsmap/blob/main/Simpsons%20Map.ipynb"
+        data-iframe="https://gregkohler.com/simpsons_map.html"
+        data-link="https://github.com/greg-kohler/simpsonsmap/blob/main/Simpsons%20Map.ipynb"
         data-linktext="View Notebook"
         style="background-image: url('https://github.com/greg-kohler/portfolio/blob/main/simpsonsmap_preview.png?raw=true');"
         onclick="openModal(this)">
@@ -202,19 +213,17 @@ title: GIS Experience
         </div>
       </section>
 
-      <section class="project"
-        data-title="Turning Movement Count Request Tracking Form"
+      <section class="project" data-title="Turning Movement Count Request Tracking Form"
         data-description="This was a Survey123 form I created manually using an XLS Form. The purpose of this form was to enable project managers to request data. This data came in the form of videos of intersections that needed vehicle and/or pedestrian turning movememts counted. This tracking form enabled project managers to select the exact locations they wanted counted, input deadlines, billing information, client information and what type of turning movement needed to be counted. This form also connected to a web map on ArcGIS Online, which allowed project managers to visualize where data has been collected to avoid redudancy. This form allowed the traffic department to streamline data collection tracking."
-		data-iframe=""
+        data-iframe=""
         style="background-image: url('https://cdn.stocksnap.io/img-thumbs/960w/intersection-crosswalk_HPUBSYPS9Q.jpg');"
         onclick="openModal(this)">
         <div class="project-header">
           Turning Movement Count Request Tracking Form
         </div>
-		  
+
       </section>
-        <section class="project"
-        data-title="Rapid Transit Equity"
+      <section class="project" data-title="Rapid Transit Equity"
         data-description="In this research project, I explored the critical topic of transportation equity in the Twin Cities region, utilizing the power of GIS to analyze planned transitways and demographics. This project focused on transit routes, including the Orange Line, Blue Line Extension, Green Line Extension, Gold Line, and Rush Line. Through the application of GIS tools and spatial analytics, I gained valuable insights into how these transit routes would serve transit-dependent populations. By analyzing demographic data of people living near these transit stops and comparing it to county-level statistics, I uncovered crucial information about the equity of these transit services. My project underlines the significance of equitable access to public transportation and the need to hold government agencies accountable for meeting the diverse needs of the community."
         data-iframe="https://drive.google.com/file/d/1iTdl195l_y1_v101eh3YHd02PbNyKsNO/preview"
         style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/3/3c/Metro_Green_Line_Train%2C_St._Paul%2C_Minnesota_%2834622505665%29.jpg');"
@@ -224,8 +233,7 @@ title: GIS Experience
         </div>
       </section>
 
-	  <section class="project"
-        data-title="University of Minnesota Data Collection"
+      <section class="project" data-title="University of Minnesota Data Collection"
         data-description="For this project, I was part of a team designated to do data collection work for the University of Minnesota at the Saint Paul Campus. For my team, I created a Survey123 form that collected locations of road crossings and their ADA compliance. This survey collected location, condition, and an image of each crossing. After the data was collected, the data was randomly sampled and validated by other members. Once the data was confirmed to be accurate, the data was cleaned up and submitted as a geodatabase. A report was prepared that outlined the data collection process and any significant findings."
         data-iframe="https://drive.google.com/file/d/1nqw4Jb9LtVkFTFjCTgi2qx6jekRbFl12/preview"
         style="background-image: url('https://github.com/greg-kohler/portfolio/blob/main/Data_Collection_Image.png?raw=true');"
@@ -234,9 +242,8 @@ title: GIS Experience
           University of Minnesota Data Collection
         </div>
       </section>
-		
-      <section class="project"
-        data-title="Future Transitway Impact of Traffic (Machine Learning)"
+
+      <section class="project" data-title="Future Transitway Impact of Traffic (Machine Learning)"
         data-description="This project takes historical AADT data, Minnesota road segments, future and existing transit lines, and bus routes to train a XGBRegressor model. The model is trained on traffic before and after an existing transit line is opened and predicts how traffic will change after a planned transit line is constructed."
         data-iframe="https://drive.google.com/file/d/1L0uPrCqkEYP3tW_RZhKxiZjVnMCAdjrZ/preview"
         style="background-image: url('https://github.com/greg-kohler/portfolio/blob/main/prediction_map.png?raw=true');"
@@ -246,16 +253,27 @@ title: GIS Experience
         </div>
       </section>
 
-      <section class="project"
-        data-title="Executive Map Portfolio"
+      <section class="project" data-title="Executive Map Portfolio"
         data-description="This multipart project is a portfolio of three StoryMap Collections: Children, Youth and Families Collection, Climate Collection, and Jobs, Workforce, and the Economy Collection. Each collection has several maps to inform how Minnesota is doing in each category. The purpose of this map portfolio is to make it easy for executives and leaders to quickly see Minnesota data. Each map was curated with data from the Living Atlas, the Minnesota Geospatial Commons, and State Agency Partners. This portfolio was presented by Governor Tim Walz at the 2024 Esri User Conference."
         data-iframe="https://storymaps.arcgis.com/collections/e9650b413f9f48c5a201c13a5eea4e61"
-		data-link="https://experience.arcgis.com/experience/c44d98d602804d6d885af299ac5db754/"
+        data-link="https://experience.arcgis.com/experience/c44d98d602804d6d885af299ac5db754/"
         data-linktext="View Portfolio"
         style="background-image: url('https://www.arcgis.com/sharing/rest/content/items/c44d98d602804d6d885af299ac5db754/resources/images/widget_140/1724277521949.jpg?token=3NKHt6i2urmWtqOuugvr9R9NoG4rj6oZ3x97INj72VVPX-GT53WTBhF6g9n8lERxTVmHsPjWraY255B-5HAmnzlN0ocgsM0uyF6P3VVXcMkAqowWOb2RwZSCAVBEvldH_84nynQtfoxtC50GnFIS3brYIBr8qvumfDivmrLOIlEzHMGmNh3QageHF_wblU9gjQK9liGVVCx8MykZqcGJG60cNI6jjpMUe4aJBXGR2-0.');"
         onclick="openModal(this)">
         <div class="project-header">
           Executive Map Portfolio
+        </div>
+      </section>
+
+      <section class="project" data-title="OCM Social Equity"
+        data-description="This project is a Esri Instant App that goes beyond visualization. I helped create an application for the Office of Cannabis Management (OCM) that utilized Arcade expressions and census tract data to show users if they lived in an eligible neighborhood. This application was cartographically simply, but a powerful tool for users to understand their eligibility status. Users simply search for their address and the application brings up their census tract and criteria."
+        data-iframe="https://minnesota.maps.arcgis.com/apps/instant/lookup/index.html?appid=4d788f2f4df24048a972b43cb4be138f"
+        data-link="https://minnesota.maps.arcgis.com/apps/instant/lookup/index.html?appid=4d788f2f4df24048a972b43cb4be138f"
+        data-linktext="View Application"
+        style="background-image: url('https://minnesota.maps.arcgis.com/sharing/rest/content/items/4d788f2f4df24048a972b43cb4be138f/info/thumbnail/blob.png?f=json&w=400');"
+        onclick="openModal(this)">
+        <div class="project-header">
+          OCM Social Equity
         </div>
       </section>
     </div>
@@ -269,60 +287,60 @@ title: GIS Experience
       <p id="modal-description"></p>
       <iframe id="modal-iframe" style="display:none;" src="" allowfullscreen></iframe>
       <img id="modal-image" style="display:none; max-width:100%; height: auto;" />
-      <a id="modal-extra" 
-       style="display:none; margin-top:1em; padding:0.5em 1em; background:#648381; color:white; text-decoration:none; border-radius:5px;">
+      <a id="modal-extra"
+        style="display:none; margin-top:1em; padding:0.5em 1em; background:#648381; color:white; text-decoration:none; border-radius:5px;">
       </a>
     </div>
   </div>
 
-<script>
-  function openModal(project) {
-    // Core title + description
-    document.getElementById("modal-title").innerText = project.dataset.title;
-    document.getElementById("modal-description").innerText = project.dataset.description;
+  <script>
+    function openModal(project) {
+      // Core title + description
+      document.getElementById("modal-title").innerText = project.dataset.title;
+      document.getElementById("modal-description").innerText = project.dataset.description;
 
-    const iframe = document.getElementById("modal-iframe");
-    const image = document.getElementById("modal-image");
-    const extraBtn = document.getElementById("modal-extra");
+      const iframe = document.getElementById("modal-iframe");
+      const image = document.getElementById("modal-image");
+      const extraBtn = document.getElementById("modal-extra");
 
-    // Reset everything first
-    iframe.style.display = "none";
-    iframe.src = "";
-    image.style.display = "none";
-    image.src = "";
-    extraBtn.style.display = "none";
-    extraBtn.href = "#";
-    extraBtn.innerText = "";
+      // Reset everything first
+      iframe.style.display = "none";
+      iframe.src = "";
+      image.style.display = "none";
+      image.src = "";
+      extraBtn.style.display = "none";
+      extraBtn.href = "#";
+      extraBtn.innerText = "";
 
-    // Handle iframe
-    if (project.dataset.iframe) {
-      iframe.src = project.dataset.iframe;
-      iframe.style.display = "block";
+      // Handle iframe
+      if (project.dataset.iframe) {
+        iframe.src = project.dataset.iframe;
+        iframe.style.display = "block";
+      }
+
+      // Handle image
+      if (project.dataset.image) {
+        image.src = project.dataset.image;
+        image.style.display = "block";
+      }
+
+      // Handle extra button/link
+      if (project.dataset.link) {
+        extraBtn.href = project.dataset.link;
+        extraBtn.innerText = project.dataset.linktext || "Learn More";
+        extraBtn.style.display = "inline-block";
+      }
+
+      // Finally open modal
+      document.getElementById("modal").style.display = "flex";
     }
 
-    // Handle image
-    if (project.dataset.image) {
-      image.src = project.dataset.image;
-      image.style.display = "block";
+    function closeModal() {
+      document.getElementById("modal").style.display = "none";
+
+      // Clear media so things like videos stop playing
+      document.getElementById("modal-iframe").src = "";
+      document.getElementById("modal-image").src = "";
     }
-
-    // Handle extra button/link
-    if (project.dataset.link) {
-      extraBtn.href = project.dataset.link;
-      extraBtn.innerText = project.dataset.linktext || "Learn More";
-      extraBtn.style.display = "inline-block";
-    }
-
-    // Finally open modal
-    document.getElementById("modal").style.display = "flex";
-  }
-
-  function closeModal() {
-    document.getElementById("modal").style.display = "none";
-
-    // Clear media so things like videos stop playing
-    document.getElementById("modal-iframe").src = "";
-    document.getElementById("modal-image").src = "";
-  }
-</script>
+  </script>
 </body>
